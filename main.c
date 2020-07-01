@@ -16,10 +16,7 @@ typedef struct {
 char *tentukanBintang(TanggalLahir lahir);
 
 void toUpperString(char *str){
-
-    printf("%d", sizeof(str));
-
-    for (int i=0; i<sizeof(str); i++){
+    for (int i=0; i<strlen(str); i++){
         str[i] = toupper(str[i]);
     }
 }
@@ -44,16 +41,13 @@ int main() {
 
     bintang = tentukanBintang(orang.tanggalLahir);
 
-    //TODO test only
-    printf("\nnama: %s lahir %d %s %d %s", orang.nama, orang.tanggalLahir.tanggal, orang.tanggalLahir.bulan, orang.tanggalLahir.tahun, bintang);
-
+    printf("\nNama: %s",orang.nama);
+    printf("\nTanggal Lahir: %d %s %d", orang.tanggalLahir.tanggal, orang.tanggalLahir.bulan, orang.tanggalLahir.tahun);
+    printf("\nBintang/Zodiak: %s", bintang);
     return 0;
 }
 
 char *tentukanBintang(TanggalLahir lahir) {
-
-    printf("%d %s %d", lahir.tanggal, lahir.bulan, lahir.tahun);
-
     if(strcmp(lahir.bulan, "JANUARI") == 0 && lahir.tanggal <= 19 && lahir.tanggal >= 1){
         return "Capricon";
     }else if(strcmp(lahir.bulan, "JANUARI") == 0 && lahir.tanggal >= 20 && lahir.tanggal <= 31){
